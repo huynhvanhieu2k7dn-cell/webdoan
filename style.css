@@ -1,0 +1,605 @@
+/* style.css */
+#wrapper {
+    width: 100%;
+}
+
+#header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.logo img {
+    width: 80px;   /* chỉnh kích thước nhỏ lại */
+    height: auto;
+    margin-left: 10px; /* cách lề trái một chút */
+}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+*{
+padding:0;
+margin:0;
+box-sizing:border-box;
+font-family:'poppins', sans-serif;
+cursor:pointer;
+}
+#wrapper {
+    width: 100%;
+    height : 100vh;
+}
+#header{
+    width: 100%;
+    padding:10px 30px;
+    margin-top:33px;
+    display:flex;
+    justify-content:space-between;
+    align-items: center
+}
+#menu {
+    list-style :none;
+    display: flex;
+}
+#menu .itenm {
+    margin:5px 40px;
+}
+#menu .item a {
+    color : #626A67;
+    text-decoration: none;
+}
+#menu {
+    list-style: none;
+    display: flex;
+    gap: 40px; /* khoảng cách giữa các item */
+}
+#actions {
+    display: flex;
+    gap: 10px;
+}
+#action .item {
+    margin-left: 22px;
+}
+#actions img {
+    width: 35px;
+    height: 35px;
+    border-radius: 70%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+
+#banner {
+    width: 100%;
+    height: 500px;
+    margin-top: 40px;
+    display: flex;
+    position: relative;
+    background-image: url("images/mon.webp");
+    background-size: cover;       /* phủ kín khung */
+    background-position: center;  /* canh giữa */
+    background-repeat: no-repeat; /* không lặp */
+    padding: 0;
+}
+
+
+
+#banner .box-left ,#banner .box-right{
+    width: 50%px;
+}
+#banner .box-left h2 {
+    font-size : 48px;
+    margin-top: 75px;
+    color:#fff;
+}
+#banner .box-left p{
+    color:#d0d0d0;
+}
+#banner .box-left button {
+width :191px;
+height:40px;
+margin-top:41px;
+margin-left: 50px;
+background: #1d1a1a;
+border:none;
+outline:none;
+color:#fff;
+font-weight:bold;
+border-radius:20px;
+transition:0.4s
+
+}
+#banner .box-left  button:hover{
+background:orange;
+}
+.box-right img {
+    width: 180px;   /* chỉnh chiều rộng nhỏ lại */
+    height: auto;   /* giữ đúng tỷ lệ ảnh */
+    margin: 8px;   /* tạo khoảng cách giữa các ảnh */
+    border-radius: 8px; /* bo góc cho đẹp (tùy chọn) */
+    object-fit: cover;  /* đảm bảo ảnh không bị méo */
+}
+
+#banner ,box-right {
+    padding-left:200px;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+#banner .box-right img{
+    margin:0px 10px;
+    animation: animation 3s infinite linear;
+}
+
+@keyframes animation {
+    0%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(-10px);
+
+    }
+    100%{
+        transform: translateY(0px);
+
+    }
+    
+}
+#banner .box-right img:nth-child(1) {
+    animation-delay: 0s;
+}
+#banner .box-right img:nth-child(2) {
+    animation-delay: 0.5s;
+}
+#banner .box-right img:nth-child(3) {
+    animation-delay: 1s;
+}
+
+
+.to-bottom {
+    position: absolute;  /* đặt theo vị trí tuyệt đối trong banner */
+  
+    bottom: -40px;         /* cách mép dưới 20px */
+    left: 50%;            /* căn giữa theo chiều ngang */
+    transform: translateX(-50%); /* dịch để đúng giữa */
+}
+
+.to-bottom img {
+    width: 40px;   /* chỉnh chiều rộng nhỏ lại */
+    height: auto;  /* giữ đúng tỷ lệ */
+ 
+    margin: 0 auto; /* căn giữa */
+}
+#wp-products {
+    text-align: center;
+    padding: 40px 0;
+}
+
+#wp-products h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* Sửa ID từ 'lít-products' thành 'list-products' cho khớp HTML */
+#list-products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Đưa các item ra giữa hàng */
+    align-items: flex-start;
+    gap: 30px;               /* Khoảng cách giữa các sản phẩm */
+    padding: 20px;
+}
+
+#list-products .item {
+ width: calc(33.33% - 20px);          /* Tăng độ rộng để giống hình mẫu */
+    background: #362f2f;
+    border-radius: 10px;
+    padding: 15px;           /* Tạo khoảng trống bên trong card */
+    text-align: center;
+    color: white;
+}
+
+#list-products .item img {
+    width: 100%;             /* Ảnh sẽ chiếm hết chiều rộng thẻ item */
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* Định dạng phần chữ và sao */
+.item .name {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.item .price {
+    color: orange;
+    margin-top: 5px;
+}
+
+.stars {
+    color: #fbff00;
+    margin-bottom: 5px;
+}
+.list-page {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Sửa từ 50px thành 100% để căn giữa toàn màn hình */
+    margin: 20px auto;
+}
+
+.list-page .item {
+    margin: 0px 10px; /* Khoảng cách giữa các nút */
+    
+    /* QUAN TRỌNG: Width và Height phải BẰNG NHAU */
+    width: 40px; 
+    height: 40px; 
+    
+    background: #362f2f;
+    border-radius: 50%; /* Bo góc 50% của hình vuông sẽ ra hình tròn */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s; /* Thêm hiệu ứng mượt mà khi di chuột */
+}
+
+.list-page .item:hover {
+    background: orange; /* Đổi màu khi di chuột vào cho chuyên nghiệp */
+}
+
+.list-page .item a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+#saleoff {
+
+    width: 100%;
+
+    max-width: 1200px; /* Thêm độ rộng tối đa để web không quá bè ra */
+
+    margin: 50px auto; /* Căn giữa toàn bộ banner */
+
+    display: flex;     /* Quan trọng: Để chữ và ảnh nằm ngang */
+
+    height: 400px;     /* Tăng chiều cao cố định để banner to ra */
+
+    border-radius: 8px; /* Bo góc cho đẹp như hình 2 */
+
+    overflow: hidden;  /* Giúp border-radius bo luôn cả ảnh */
+
+}
+
+
+
+#saleoff .box-left {
+
+    width: 50%;
+
+    background: #3e3e3e; /* Màu xám đậm nguyên bản */
+
+    color: #fff;
+
+    display: flex;
+
+    flex-direction: column; /* Sắp xếp chữ theo chiều dọc */
+
+    justify-content: center; /* Căn giữa chữ theo chiều dọc */
+
+    align-items: center;    /* Căn giữa chữ theo chiều ngang */
+
+    text-align: center;
+
+}
+
+
+
+#saleoff .box-left h1 {
+
+    line-height: 1.2; /* Khoảng cách giữa 2 dòng chữ */
+
+}
+
+
+
+#saleoff .box-left h1 span:first-child {
+
+    font-size: 40px; /* Kích thước chữ "GIẢM GIÁ" */
+
+}
+
+
+
+#saleoff .box-left h1 .percent {
+
+    font-size: 110px; /* Làm số 45% to hẳn lên */
+
+    color: orange;    /* Đổi sang màu cam nhấn mạnh */
+
+    font-weight: bold;
+
+    display: block;   /* Ép nó thành 1 khối để padding dễ chỉnh */
+
+    padding-top: 10px;
+
+}
+
+
+
+#saleoff .box-right {
+
+    width: 50%;
+
+}
+
+
+
+#saleoff .box-right img {
+
+    width: 100%;       /* Phủ kín chiều rộng 50% */
+
+    height: 100%;      /* Phủ kín chiều cao 400px của saleoff */
+
+    object-fit: cover; /* Quan trọng: Ảnh không bị méo */
+
+    display: block;    /* Xóa khoảng hở nhỏ dưới ảnh */
+
+}
+#comment {
+    width: 100%;
+    max-width: 1200px;
+    margin: 60px auto;
+    text-align: center;
+}
+
+#comment h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+#comment-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+#list-comment {
+    list-style: none;
+    padding: 0;
+}
+
+#list-comment .item {
+    background: #f9f9f9;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+#list-comment .avatar img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+#list-comment .name {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#list-comment .text {
+    font-style: italic;
+    color: #666;
+}
+#comment {
+    width: 1012px;       /* chiều rộng khung */
+    height: 478px;       /* chiều cao khung */
+    margin: 0 auto;      /* căn giữa theo chiều ngang */
+    margin-top: 184px;   /* cách mép trên 184px */
+    
+}
+#comment h2 {
+    text-align: center;     /* căn giữa chữ */
+    margin-bottom: 50px;    /* khoảng cách dưới */
+    font-size: 32px;        /* cỡ chữ */
+    color: #626a67;         /* màu chữ */
+}
+/* --- CSS CHO PHẦN COMMENT --- */
+#comment {
+    width: 100%;
+    max-width: 1200px;
+    margin: 60px auto;
+    text-align: center;
+}
+
+#comment h2 {
+    margin-bottom: 40px;
+    font-size: 24px;
+    color: #555;
+}
+
+#comment-body {
+    display: flex;         /* Đưa mũi tên và khối nội dung nằm ngang */
+    align-items: center;    /* Căn giữa theo chiều dọc */
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Nút mũi tên */
+#comment-body .prev img, 
+#comment-body .next img {
+    width: 30px;
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+#comment-body .prev img:hover, 
+#comment-body .next img:hover {
+    opacity: 1;
+}
+
+/* Khối màu đen chứa bình luận */
+#comment .list-comment {
+    width: 70%;
+    background: #362f2f; /* Màu xám đậm như hình bạn gởi */
+    padding: 40px;
+    border-radius: 20px;
+    color: white;
+}
+
+#comment .item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#comment .avatar img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%; /* Làm ảnh tròn */
+    border: 3px solid #fff;
+    margin-bottom: 15px;
+    object-fit: cover;
+}
+
+#comment .stars {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+#comment .name {
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+#comment .text {
+    line-height: 1.6;
+    font-size: 14px;
+    color: #ccc; /* Chữ xám nhạt cho dễ đọc trên nền tối */
+}
+#actions {
+    display: flex;
+    align-items: center;
+}
+
+.search-box {
+    display: flex;
+    margin-right: 20px; /* Khoảng cách với các icon bên phải */
+}
+
+.search-box input {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px 0 0 20px; /* Bo góc bên trái */
+    outline: none;
+}
+
+.search-box button {
+    padding: 5px 15px;
+    background-color: #ffb400; /* Màu vàng giống menu của bạn */
+    border: none;
+    color: white;
+    border-radius: 0 20px 20px 0; /* Bo góc bên phải */
+    cursor: pointer;
+}
+
+.search-box button:hover {
+    background-color: #e6a400;
+}
+/* linn hệ 
+
+/* --- CSS TRANG LIÊN HỆ --- */
+#contact-container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.contact-content {
+    display: flex;
+    justify-content: space-between;
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+
+/* Phần thông tin bên trái */
+.contact-info {
+    flex: 1;
+    background: #004d40; /* Màu xanh đậm đẳng cấp */
+    color: white;
+    padding: 40px;
+}
+
+.contact-info h2 {
+    font-size: 28px;
+    margin-bottom: 25px;
+    color: #ffb400; /* Màu vàng cam điểm nhấn */
+}
+
+.contact-info p {
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.contact-info i {
+    margin-right: 10px;
+    color: #ffb400;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 24px;
+    margin-right: 20px;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    color: #ffb400;
+}
+
+/* Phần Form bên phải */
+.contact-form {
+    flex: 1.5;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+}
+
+.btn-send {
+    background: #ffb400;
+    color: #fff;
+    border: none;
+    padding: 15px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-send:hover {
+    background: #e6a400;
+    transform: translateY(-3px); /* Nhảy nhẹ khi hover */
+}
+
+#map {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}

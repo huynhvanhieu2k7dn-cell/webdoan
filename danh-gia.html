@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đánh Giá Đẳng Cấp - Web Bán Hoa</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* CSS cho Form đánh giá thêm phần đẳng cấp */
+        #review-form-container { background: #f9f9f9; padding: 30px; border-radius: 15px; margin: 20px auto; max-width: 600px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .rating-input { color: #ffb400; font-size: 25px; cursor: pointer; margin-bottom: 15px; }
+        #review-list { margin-top: 30px; }
+        .review-item { background: white; padding: 15px; border-radius: 10px; margin-bottom: 15px; border-left: 5px solid #ffb400; animation: fadeIn 0.5s; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="header">
+            <a href="index.html" class="logo"><img src="images/logo.jpg" alt="Logo"></a>
+            <div id="menu">
+                <div class="item"><a href="index.html">Trang chủ</a></div>
+                <div class="item"><a href="san-pham.html">Sản Phẩm</a></div>
+                <div class="item"><a href="danh-gia.html" style="color: #ffb400;">ĐÁNH GIÁ</a></div>
+                <div class="item"><a href="lien-he.html">Liên Hệ</a></div>
+            </div>
+        </div>
+
+        <div id="review-form-container">
+            <h2 style="text-align: center;">GỬI ĐÁNH GIÁ CỦA BẠN</h2>
+            <form id="feedbackForm">
+                <input type="text" id="reviewerName" placeholder="Tên của bạn" required style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ddd;">
+                
+                <div class="rating-input">
+                    <span onclick="setRating(1)">⭐</span><span onclick="setRating(2)">⭐</span><span onclick="setRating(3)">⭐</span><span onclick="setRating(4)">⭐</span><span onclick="setRating(5)">⭐</span>
+                    <input type="hidden" id="ratingValue" value="5">
+                </div>
+
+                <textarea id="reviewerText" placeholder="Cảm nhận của bạn về món ăn & hoa..." rows="4" required style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ddd;"></textarea>
+                
+                <button type="submit" class="btn-send" style="width: 100%; margin-top: 15px; background: #28a745; color: white; padding: 12px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">GỬI ĐÁNH GIÁ NGAY</button>
+            </form>
+        </div>
+
+        <div id="comment" style="padding: 20px;">
+            <h2 style="text-align: center;">KHÁCH HÀNG NÓI GÌ</h2>
+            <div id="review-list">
+                </div>
+        </div>
+    </div>
+
+    <script>
+    let currentRating = 5; // Mặc định là 5 sao khi mới mở trang
+
+    // Hàm chọn sao cực mượt - KHÔNG HIỆN "OK"
+    function setRating(n) {
+        currentRating = n; // Lưu số sao khách chọn
+        const stars = document.querySelectorAll('.rating-input span');
+        
+        // Chạy vòng lặp để thắp sáng số sao tương ứng
+        stars.forEach((star, index) => {
+            if (index < n) {
+                star.style.opacity = "1"; // Sao được chọn thì sáng rõ
+                star.style.filter = "grayscale(0%)"; // Hiện màu vàng rực
+            } else {
+                star.style.opacity = "0.3"; // Sao không được chọn thì mờ đi
+                star.style.filter = "grayscale(100%)"; // Biến thành màu xám
+            }
+        });
+    }
+
+    // Phần xử lý gửi Form và Lưu vào bộ nhớ máy tính
+    const feedbackForm = document.getElementById('feedbackForm');
+    const reviewList = document.getElementById('review-list');
+
+    function displayReviews() {
+        const reviews = JSON.parse(localStorage.getItem('reviews')) || [];
+        reviewList.innerHTML = reviews.map(r => `
+            <div class="review-item" style="border-left: 5px solid #ffb400; padding: 15px; margin-bottom: 10px; background: #fff; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <div class="stars" style="color: #ffb400; margin-bottom: 5px;">${"⭐".repeat(r.rating)}</div>
+                <div class="name"><strong>${r.name}</strong></div>
+                <div class="text" style="color: #555;">${r.text}</div>
+            </div>
+        `).join('');
+    }
+
+    feedbackForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('reviewerName').value;
+        const text = document.getElementById('reviewerText').value;
+
+        const newReview = { name, text, rating: currentRating };
+
+        const reviews = JSON.parse(localStorage.getItem('reviews')) || [];
+        reviews.unshift(newReview);
+        localStorage.setItem('reviews', JSON.stringify(reviews));
+
+        feedbackForm.reset();
+        setRating(5); // Reset về 5 sao sau khi gửi
+        displayReviews();
+    });
+
+    displayReviews(); // Hiện các đánh giá cũ khi vừa vào trang
+</script>
+</body>
+</html>

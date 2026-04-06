@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Bán Hoa & Thức Ăn</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div id="wrapper">
+        <div id="header">
+            <a href="index.html" class="logo">
+                <img src="images/logo.jpg" alt="Logo">
+            </a>
+            <div id="menu">
+                <div class="item">
+                    <a href="index.html">Trang chủ</a>
+                </div>
+                <div class="item">
+                    <a href="san-pham.html">Sản Phẩm</a>
+                </div>
+                <div class="item">
+                <a href="danh-gia.html">ĐÁNH GIÁ</a>
+                </div>
+                <div class="item">
+                    <a href="lien-he.html">Liên Hệ</a>
+                </div>
+            </div>
+            <div id="actions">
+<div class="search-box">
+    <input type="text" id="search-input" placeholder="Tìm sản phẩm...">
+    <button type="button"><i class="fa fa-search"></i></button>
+</div>
+                <div class="item">
+                    <img src="images/ues.jpg" alt="User">
+                </div>
+                <div class="item">
+                    <img src="images/pas.jpg" alt="Cart">
+                </div>
+            </div>
+        </div>
+
+        <div id="banner">
+            <div class="box-left">
+                <h2>
+                    <span>THỨC ĂN</span>
+                    <br>
+                    <span>THƯỢNG HẠNG</span>
+                </h2>
+                <p>CUNG CẤP HOA ĐẸP ĐẲNG CẤP NHẤT CHO MỌI NGƯỜI</p>
+                <button>Mua Ngay</button>
+            </div>
+            <div class="box-right">
+                <img src="images/ca.jpg" alt="">
+                <img src="images/long.webp" alt="">
+                <img src="images/xeo.jpg" alt="">
+            </div>
+        </div>
+
+        <div id="wp-products">
+            <h2>SẢN PHẨM CỦA CHÚNG TÔI</h2>
+            <div id="list-products">
+                <div class="item">
+                    <img src="images/su.jpg" alt="">
+                    <div class="stars">⭐⭐⭐⭐⭐</div> 
+                    <div class="name">Sushi</div>
+                    <div class="price">250.000 VND</div>
+                </div>
+                <div class="item">
+                    <img src="images/tom.jpg" alt="">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="name">Tôm Sú Chiên Xù</div>
+                    <div class="price">101.000 VND</div>
+                </div>
+                <div class="item">
+                    <img src="images/đậu.png" alt="">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="name">Đậu Khuôn Tẩm Hành</div>
+                    <div class="price">89.000 VND</div>
+                </div>
+                </div>
+            
+            <div class="list-page">
+                <div class="item"><a href="index.html">1</a></div>
+                <div class="item"><a href="san-pham.html">2</a></div>
+                <div class="item"><a href="#">3</a></div>
+                <div class="item"><a href="#">4</a></div>
+            </div>
+        </div>
+
+        <div id="saleoff">
+            <div class="box-left">
+                <h1>
+                    <span>GIẢM GIÁ LÊN ĐẾN</span> <br> <span class="percent">50%</span> 
+                </h1>
+            </div>
+            <div class="box-right">
+                <img src="images/chim nuong.jpg" alt="Sale off">
+            </div>
+        </div>
+
+        <div id="comment">
+            <h2>KHÁCH HÀNG NÓI GÌ</h2>
+            <div id="comment-body">
+                <ul id="list-comment"> 
+                    <li class="item">
+                        <div class="avatar"><img src="images/nem.jpg" alt=""></div>
+                        <div class="name">Huỳnh Nguyễn Văn Hiếu</div>
+                        <div class="text">"Thức ăn ở đây rất ngon, phục vụ rất tốt!"</div>
+                    </li>
+                </ul>
+        <div class="next">
+            <a href="#">
+                <img src="images/3.jpg" alt="Nút sau">
+            </a>
+        </div>
+    </div>
+    <div id="comment">
+    <h2>NHẬN XÉT CỦA KHÁCH HÀNG</h2>
+    <div id="comment-body">
+        <div class="prev">
+             </div>
+
+        <div class="list-comment">
+            <div class="item">
+                <div class="avatar">
+                    <img src="images/anh-den-ngau.jpeg" alt="Avatar">
+                </div>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <div class="name">Nguyễn Đình Vũ</div>
+                <div class="text">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                </div>
+            </div>
+        </div>
+
+        <div class="next">
+          
+    </div>
+</div>
+
+</div>
+<script>
+    const searchInput = document.getElementById('search-input');
+    const products = document.querySelectorAll('#list-products .item');
+
+    searchInput.addEventListener('input', function() {
+        const keyword = searchInput.value.toLowerCase();
+        products.forEach(product => {
+            const productName = product.querySelector('.name').innerText.toLowerCase();
+            if (productName.includes(keyword)) {
+                product.style.display = "block"; 
+            } else {
+                product.style.display = "none";
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
+</div> </body>
+</head>
+    
